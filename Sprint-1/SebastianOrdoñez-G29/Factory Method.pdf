@@ -1,0 +1,332 @@
+<<<<<<< HEAD
+Metodo Factory
+
+EJ1:
+
+class Club(object):
+    def __init__(self):
+        self.nombre = None
+        self.tipo = None
+        self.horario = None
+        self.clase = None
+
+    def get_nombre(self):
+        return self.nombre
+    def  get_tipo(self):
+        return self.tipo
+    def get_horario(self):
+        return self.horario
+    def get_clase(self):
+        return self.clase
+    def __str__(self):
+        return "Información del club: \n1. Nombre: {n}\n2. Tipo: {t}\n3.  Horario: {h}\n4. Clase: {c}".format(
+            n = self.get_nombre(), t=self.get_tipo(), h=self.get_horario(), c=self.get_clase()
+        )
+
+
+class Nocturno(Club):
+
+    def __init__(self , nombre, tipo, horario, clase):
+        self.nombre = nombre
+        self.tipo = tipo
+        self.horario = horario
+        self.clase = clase
+        print ("Buenas señores, el club  "+nombre+" que es de tipo "+tipo+" con horario "+str(horario)+" de clase "+clase)
+
+class Diurno(Club):
+
+    def __inti__(self, nombre, tipo, horario, clase):
+        self.nombre = nombre
+        self.tipo = tipo
+        self.horario = horario
+        self.clase = clase
+        print("Buenas familia, el club "+nombre+" que es de tipo "+tipo+" con horario "+str(horario)+" de clase "+clase)
+
+class factoria(object):
+    def get_Club(self, nombre, tipo, horario, clase):
+        if(horario == 'Diurno'):
+            return Diurno(nombre, tipo, horario, clase)
+        elif(horario == 'Nocturno'):
+            return Nocturno(nombre, tipo, horario, clase)
+
+if __name__ == '__main__':
+    mi_factoria = factoria()
+
+    nombre = input("Ingrese el nombre del Club: ")
+    tipo = input("Ingrese el tipo de club(privado, semi-privado, abierto): ")
+    horario = input("Ingrese el horario que maneja el club (Diurno, Nocturno):")
+    clase = input("Que clase dde club es (Familiar, mayores de edad): ")
+
+    Club = mi_factoria.get_Club(nombre, tipo, horario, clase)
+    print (Club)
+
+"""
+En este caso seu usa el parametro factoria para decir que objeto se cre el cual es un char 
+que en este caso es "horario" .
+En la clase Club se implementa el __str__ para imprimir un mensaje personalizado.
+
+Este ejemplo es para identificar el estado de un club, para facilitar el acceso al mismo
+"""
+
+
+EJ2:
+
+class Juegos:
+    def get_genero(self):
+        pass
+    def consola(self):
+        pass
+
+class Plataforma(Juegos):
+    def get_genero(self):
+        print('Es un juego de plataforma, ya que tienes que pasar plataformas para pasar el juego')
+    def consola(self):
+        print('Por lo general son ubicados en los juegos de arcade, donde vio su origen')
+
+class RPG(Juegos):
+    def get_genero(self):
+        print("Se le llama asi a los juegos que representas roles a los cuales se les puede mejorar, generando una estrategia")
+    def consola(self):
+        print("Aunque se inicia en juegos de mesa como Dragons and Dungeus, busco su nicho en los pc y consolas de hogar")
+
+class Deportes(Juegos):
+    def get_genero(self):
+        print("Son todos aquellos que que tratan de deportes como el futboll, tennis, baloncesto, entre otros")
+    def consola(self):
+        print("Estos juegos han alcanzado su nicho en las consolas de mesa")
+
+class Primera_Persona(Juegos):
+    def get_genero(self):
+        print("Estos juegos son muy conocidos por mostrar al juegador como participante de la accion")
+    def consola(self):
+        print("Tiene su ocupacion en todas las consolas comenzando en las arcades")
+
+class Estrategia(Juegos):
+    def get_genero(self):
+        print("Son aquellos que busca la estrategia para poder avanzar el juego, como el ajedrez")
+    def consola(self):
+        print("Estos tipos de juegos, estan bien establecidos en la PC por su facil modo de control")
+
+class AbstracJuegos:
+    def crear_juegos(self, c):
+        pass
+
+class FactoriaJuegos(AbstracJuegos):
+    def crear_juegos(self, c):
+        juego = None
+
+        if  c == 'Plataforma':
+            return Plataforma()
+        elif c == 'RPG':
+            return RPG()
+        elif c =='Deportes':
+            return Deportes()
+        elif c == 'Primera_Persona':
+            return Primera_Persona()
+        elif c == 'Estrategia':
+            return Estrategia()
+        else:
+            return
+
+if __name__ == '__main__':
+    gaming = FactoriaJuegos()
+
+    print('Juegos de Plataforma....')
+    plataformero = gaming.crear_juegos('Plataforma')
+    plataformero.get_genero()
+    plataformero.consola()
+    print ('-*-' * 5)
+
+    print('Juegos de Rol...')
+    rolero = gaming.crear_juegos('RPG')
+    rolero.get_genero()
+    rolero.consola()
+    print ('-*-' * 5)
+
+    print('Juegos de Deportista...')
+    deportivos = gaming.crear_juegos('Deportes')
+    deportivos.get_genero()
+    deportivos.consola()
+    print ('-*-' * 5)
+
+    print('Juegos de Primeras Personas....')
+    primerPersona = gaming.crear_juegos('Primera Persona')
+    primerPersona.get_genero()
+    primerPersona.consola()
+    print ('-*-' * 5)
+
+    print('Juegos de Estrategia...')
+    estrategico = gaming.crear_juegos('Estrategia')
+    estrategico.get_genero()
+    estrategico.consola()
+    print ('-*-' * 5)
+
+"""
+Se genera una funcion factory para catalogar distintos juegos, por generos usando una clase abstrac
+=======
+Metodo Factory
+
+EJ1:
+
+class Club(object):
+    def __init__(self):
+        self.nombre = None
+        self.tipo = None
+        self.horario = None
+        self.clase = None
+
+    def get_nombre(self):
+        return self.nombre
+    def  get_tipo(self):
+        return self.tipo
+    def get_horario(self):
+        return self.horario
+    def get_clase(self):
+        return self.clase
+    def __str__(self):
+        return "Información del club: \n1. Nombre: {n}\n2. Tipo: {t}\n3.  Horario: {h}\n4. Clase: {c}".format(
+            n = self.get_nombre(), t=self.get_tipo(), h=self.get_horario(), c=self.get_clase()
+        )
+
+
+class Nocturno(Club):
+
+    def __init__(self , nombre, tipo, horario, clase):
+        self.nombre = nombre
+        self.tipo = tipo
+        self.horario = horario
+        self.clase = clase
+        print ("Buenas señores, el club  "+nombre+" que es de tipo "+tipo+" con horario "+str(horario)+" de clase "+clase)
+
+class Diurno(Club):
+
+    def __inti__(self, nombre, tipo, horario, clase):
+        self.nombre = nombre
+        self.tipo = tipo
+        self.horario = horario
+        self.clase = clase
+        print("Buenas familia, el club "+nombre+" que es de tipo "+tipo+" con horario "+str(horario)+" de clase "+clase)
+
+class factoria(object):
+    def get_Club(self, nombre, tipo, horario, clase):
+        if(horario == 'Diurno'):
+            return Diurno(nombre, tipo, horario, clase)
+        elif(horario == 'Nocturno'):
+            return Nocturno(nombre, tipo, horario, clase)
+
+if __name__ == '__main__':
+    mi_factoria = factoria()
+
+    nombre = input("Ingrese el nombre del Club: ")
+    tipo = input("Ingrese el tipo de club(privado, semi-privado, abierto): ")
+    horario = input("Ingrese el horario que maneja el club (Diurno, Nocturno):")
+    clase = input("Que clase dde club es (Familiar, mayores de edad): ")
+
+    Club = mi_factoria.get_Club(nombre, tipo, horario, clase)
+    print (Club)
+
+"""
+En este caso seu usa el parametro factoria para decir que objeto se cre el cual es un char 
+que en este caso es "horario" .
+En la clase Club se implementa el __str__ para imprimir un mensaje personalizado.
+
+Este ejemplo es para identificar el estado de un club, para facilitar el acceso al mismo
+"""
+
+
+EJ2:
+
+class Juegos:
+    def get_genero(self):
+        pass
+    def consola(self):
+        pass
+
+class Plataforma(Juegos):
+    def get_genero(self):
+        print('Es un juego de plataforma, ya que tienes que pasar plataformas para pasar el juego')
+    def consola(self):
+        print('Por lo general son ubicados en los juegos de arcade, donde vio su origen')
+
+class RPG(Juegos):
+    def get_genero(self):
+        print("Se le llama asi a los juegos que representas roles a los cuales se les puede mejorar, generando una estrategia")
+    def consola(self):
+        print("Aunque se inicia en juegos de mesa como Dragons and Dungeus, busco su nicho en los pc y consolas de hogar")
+
+class Deportes(Juegos):
+    def get_genero(self):
+        print("Son todos aquellos que que tratan de deportes como el futboll, tennis, baloncesto, entre otros")
+    def consola(self):
+        print("Estos juegos han alcanzado su nicho en las consolas de mesa")
+
+class Primera_Persona(Juegos):
+    def get_genero(self):
+        print("Estos juegos son muy conocidos por mostrar al juegador como participante de la accion")
+    def consola(self):
+        print("Tiene su ocupacion en todas las consolas comenzando en las arcades")
+
+class Estrategia(Juegos):
+    def get_genero(self):
+        print("Son aquellos que busca la estrategia para poder avanzar el juego, como el ajedrez")
+    def consola(self):
+        print("Estos tipos de juegos, estan bien establecidos en la PC por su facil modo de control")
+
+class AbstracJuegos:
+    def crear_juegos(self, c):
+        pass
+
+class FactoriaJuegos(AbstracJuegos):
+    def crear_juegos(self, c):
+        juego = None
+
+        if  c == 'Plataforma':
+            return Plataforma()
+        elif c == 'RPG':
+            return RPG()
+        elif c =='Deportes':
+            return Deportes()
+        elif c == 'Primera_Persona':
+            return Primera_Persona()
+        elif c == 'Estrategia':
+            return Estrategia()
+        else:
+            return
+
+if __name__ == '__main__':
+    gaming = FactoriaJuegos()
+
+    print('Juegos de Plataforma....')
+    plataformero = gaming.crear_juegos('Plataforma')
+    plataformero.get_genero()
+    plataformero.consola()
+    print ('-*-' * 5)
+
+    print('Juegos de Rol...')
+    rolero = gaming.crear_juegos('RPG')
+    rolero.get_genero()
+    rolero.consola()
+    print ('-*-' * 5)
+
+    print('Juegos de Deportista...')
+    deportivos = gaming.crear_juegos('Deportes')
+    deportivos.get_genero()
+    deportivos.consola()
+    print ('-*-' * 5)
+
+    print('Juegos de Primeras Personas....')
+    primerPersona = gaming.crear_juegos('Primera Persona')
+    primerPersona.get_genero()
+    primerPersona.consola()
+    print ('-*-' * 5)
+
+    print('Juegos de Estrategia...')
+    estrategico = gaming.crear_juegos('Estrategia')
+    estrategico.get_genero()
+    estrategico.consola()
+    print ('-*-' * 5)
+
+"""
+Se genera una funcion factory para catalogar distintos juegos, por generos usando una clase abstrac
+>>>>>>> bc9e16774008eb1f7b9818d5c4e104875d6142f0
+"""
