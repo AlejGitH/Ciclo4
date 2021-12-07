@@ -1,0 +1,75 @@
+<!-- Navbar -->
+<div class="navbar">
+  <div class="main-content__brand1">
+    <img src="https://cdn-icons.flaticon.com/png/512/3227/premium/3227053.png?token=exp=1638716011~hmac=061c436340fc0d700eae83f7a0a98a2e" alt="logo empresa" height="45" width="45">
+    <h1 href="#" class="active">Libros Online</h1>
+  </div>
+  <div >
+    <a [routerLink]="['/Paginaprincipal']">Inicio</a>
+    <a [routerLink]="['/Paginaprincipal']">Compras</a>
+    <a [routerLink]="['/CarritoCompras']">Carrito</a>
+  <div class="main-content__brand2">
+    <img src="https://cdn-icons.flaticon.com/png/512/2102/premium/2102633.png?token=exp=1638715837~hmac=b8fb787317c4b07a36da8dd2594e2978" alt="logo user" height="30" width="30">
+    <h4 href="#" class="right">Usuario</h4>
+  </div>
+  </div>
+</div>
+
+<!-- Titulo de la tabla-->
+<div class="main-app">
+  <img src="https://www.pikpng.com/pngl/b/366-3667953_noun-857895-cc-iconos-de-carrito-de-compra.png" alt="carrito" >
+  <h1>
+    Carrito de Compras
+  </h1>
+</div>
+
+<!-- Table de contenido de carro -->
+<div>
+  <table class="table table-striped table-hover table-bordered" id="tabla" >
+    <thead>
+      <tr style="background-color: aquamarine;">
+        <th><strong>Libros</strong></th>
+        <th><strong>Nombre Libros</strong></th>
+        <th><strong>Cantidad</strong></th>
+        <th><strong>Precio Unidad</strong></th>
+        <th><strong>Total</strong></th>
+      </tr>
+    </thead>
+    <!-- Muestar de datos  -->
+    <tbody>
+      <tr *ngFor="let libro of libro">
+        <td>{{libro.imagen}}</td>
+        <td>{{libro.nombre}}</td>
+        <td>{{libro.cantidad}}</td>
+        <td>{{libro.preciounidad}}</td>
+        <td>{{libro.total}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Boton de envio -->
+       <div class="section">
+        <button class="bnt-join" id="comprar">Vaciar Carrito</button>
+      </div>  
+</div>
+
+<!-- Resultado de Totalidades de compra -->
+<div class="style-result">
+<div class="result">
+  <h5>Total Incluido Envio:</h5>
+  <input type="visibility: hidden" id="envio" placeholder="$$$">
+</div>
+<div class="result">
+  <h5>Total Incluido IVA:</h5>
+  <input type="visibility: hidden" id="iva" placeholder="$$$">
+</div>
+ <div class="result">
+  <h5>Costo Total:</h5>
+  <input type="visibility: hidden" id="total" placeholder="$$$">
+ </div>
+ <hr>
+ <!-- Boton de Compra -->
+ <div class="section">
+  <button  [routerLink]="['/Paginaprincipal']" class="bnt-join" id="comprar">Comprar ></button>
+ </div>
+</div>
+
