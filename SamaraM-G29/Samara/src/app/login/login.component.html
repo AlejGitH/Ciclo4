@@ -1,0 +1,13 @@
+<form id= "miFormulario" action="" action="post" class="login" name= formulario [formGroup]="datosform1">
+    <div class="registro">
+    <div class="form">
+      <h1>Iniciar Sesión</h1>
+      <input type="text" formControlName="username" name="username" placeholder="Username">
+      <h2>{{retorno_username1}}</h2>
+      <input type="password" formControlName="contrasena" name="contrasena" placeholder="Contraseña">
+      <h2>{{retorno_contrasena1}}</h2>
+      <button (click)="login()"  class="botonlogin" formcontrolName="botonlogin" name="botonlogin">Ingresar</button>
+    </div>
+  </div>
+</form>
+
