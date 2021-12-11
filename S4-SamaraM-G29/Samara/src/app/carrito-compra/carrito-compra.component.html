@@ -1,0 +1,59 @@
+<!-- Titulo de la tabla-->
+<div class="main-app">
+    <img src="https://www.pikpng.com/pngl/b/366-3667953_noun-857895-cc-iconos-de-carrito-de-compra.png" alt="carrito" >
+    <h1>
+      Carrito de Compras
+    </h1>
+  </div>
+  
+  <!-- Table de contenido de carro -->
+  <div>
+    <table class="table table-striped table-hover table-bordered" id="tabla" >
+      <thead>
+        <tr style="background-color: aquamarine;">
+          <th><strong>Libros</strong></th>
+          <th><strong>Nombre</strong></th>
+          <th><strong>Cantidad</strong></th>
+          <th><strong>Precio </strong></th>
+          <th><strong>Total</strong></th>
+          <th><strong>Accion</strong></th>
+        </tr>
+      </thead>
+      <!-- Muestar de datos  -->
+      <tbody>
+        <tr *ngFor="let libro of libro">
+          <td>{{libro.imagen}}</td>
+          <td>{{libro.nombre}}</td>
+          <td>{{libro.cantidad}}</td>
+          <td>{{libro.preciounidad}}</td>
+          <td>{{libro.cantidad*libro.preciounidad}}</td>
+          <td>
+            <i src="https://cdn-icons.flaticon.com/png/512/2763/premium/2763138.png?token=exp=1639144597~hmac=393fc649d6f4323d673b3467a5998645" class="btn btn-success">X</i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Boton de envio -->
+         <div class="section">
+          <button class="bnt-join" id="comprar">Vaciar Carrito</button>
+        </div>  
+  </div>
+  
+  <!-- Resultado de Totalidades de compra -->
+  <div class="style-result">
+  <div class="result">
+    <h5>Envio Incluido:</h5>
+    <input type="visibility: hidden" id="envio" placeholder="$$$">
+  </div>
+   <div class="result">
+    <h5>Costo Total:</h5>
+    <input type="visibility: hidden" id="total" placeholder="$$$">
+   </div>
+   <hr>
+   <!-- Boton de Compra -->
+   <div class="section">
+    <button   class="bnt-join" id="comprar">Comprar ></button>
+   </div>
+  </div>
+  
+  
